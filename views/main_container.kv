@@ -1,0 +1,23 @@
+<MainContainer>:
+    orientation: "vertical"
+
+    MDLabel:
+        text: "Content"
+        halign: "center"
+
+    MDBottomAppBar:
+
+        MDTopAppBar:
+            use_overflow: True
+            opposite_colors: True
+            title: "Choose"
+            icon: "swap-horizontal"
+            type: "bottom"
+            right_action_items:
+                [
+                ["view-list-outline", lambda x: x],
+                ["playlist-star", lambda x: x],
+                ["view-list", lambda x: x],
+                ["playlist-edit", lambda x: x],
+                ["account-box", lambda x: x],
+                ]
