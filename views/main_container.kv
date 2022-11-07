@@ -1,23 +1,89 @@
 <MainContainer>:
+    main_screen_manager: main_screen_manager
     orientation: "vertical"
 
-    MDLabel:
-        text: "Content"
-        halign: "center"
+    MDNavigationLayout:
 
-    MDBottomAppBar:
+        MDScreenManager:
+            id: main_screen_manager
 
-        MDTopAppBar:
-            use_overflow: True
-            opposite_colors: True
-            title: "Choose"
-            icon: "swap-horizontal"
-            type: "bottom"
-            right_action_items:
-                [
-                ["view-list-outline", lambda x: x],
-                ["playlist-star", lambda x: x],
-                ["view-list", lambda x: x],
-                ["playlist-edit", lambda x: x],
-                ["account-box", lambda x: x],
-                ]
+            MDScreen:
+                name: "content screen"
+
+                MDBoxLayout:
+                    orientation: "vertical"
+
+                    MDTopAppBar:
+                        title: "Play Play Play"
+                        elevation: 4
+                        pos_hint: {"top": 1}
+                        md_bg_color: app.theme_cls.primary_color
+                        specific_text_color: "#4a4939"
+                        left_action_items:
+                            [['jellyfish-outline', lambda x: nav_drawer.set_state("open")]]
+
+                    MyScreenManager:
+                        id: my_screen_manager
+
+            MDScreen:
+                name: "loading screen"
+
+                MDGridLayout:
+                    cols: 1
+                    rows: 2
+                    padding: '0sp', '200sp', '0sp', '200sp'
+
+                    Label:
+                        text: "Please, wait..."
+
+                    RelativeLayout:
+
+                        MDProgressBar:
+                            id: progress_bar
+                            value: 0
+                            pos_hint: {"center_y": .5}
+
+                    Widget:
+
+        MDNavigationDrawer:
+            id: nav_drawer
+            radius: (0, 16, 16, 0)
+            anchor: "left"
+
+            MDNavigationDrawerMenu:
+                type: "standard"
+
+                MDNavigationDrawerHeader:
+                    title: "Task Helper Menu"
+                    text: "LLK Inc."
+                    spacing: "4dp"
+                    padding: "12dp", 0, 0, "56dp"
+
+                MDNavigationDrawerLabel:
+                    text: "Choose an option"
+
+                DrawerClickableItem:
+                    icon: "format-list-numbered"
+                    text: "Tasks list (common)"
+
+                DrawerClickableItem:
+                    icon: "format-list-numbered"
+                    text: "Tasks list (unusual)"
+
+                MDNavigationDrawerDivider:
+
+                DrawerClickableItem:
+                    icon: "list-status"
+                    text: "Tasks list (freeze)"
+
+                MDNavigationDrawerDivider:
+
+                DrawerClickableItem:
+                    icon: "playlist-edit"
+                    text: "Loggers"
+
+                MDNavigationDrawerDivider:
+
+                DrawerClickableItem:
+                    icon: "account-outline"
+                    text: "Personal office"

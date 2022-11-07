@@ -47,7 +47,7 @@ requirements = python3,kivy==2.1.0,kivymd==1.1.1,sdl2_ttf,pillow==9.2.0
 #presplash.filename = %(source.dir)s/data/presplash.png
 
 # (str) Icon of the application
-icon.filename = /home/loki/PycharmProjects/MyTaskHelper/assets/images/eight.jpg
+icon.filename = /home/loki/PycharmProjects/MyTaskHelper/assets/images/2.png
 
 # (str) Supported orientation (one of landscape, sensorLandscape, portrait or all)
 orientation = portrait
