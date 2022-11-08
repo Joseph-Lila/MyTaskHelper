@@ -23,27 +23,7 @@
                             [['jellyfish-outline', lambda x: nav_drawer.set_state("open")]]
 
                     MyScreenManager:
-                        id: my_screen_manager
-
-            MDScreen:
-                name: "loading screen"
-
-                MDGridLayout:
-                    cols: 1
-                    rows: 2
-                    padding: '0sp', '200sp', '0sp', '200sp'
-
-                    Label:
-                        text: "Please, wait..."
-
-                    RelativeLayout:
-
-                        MDProgressBar:
-                            id: progress_bar
-                            value: 0
-                            pos_hint: {"center_y": .5}
-
-                    Widget:
+                        main_screen_manager: main_screen_manager
 
         MDNavigationDrawer:
             id: nav_drawer
