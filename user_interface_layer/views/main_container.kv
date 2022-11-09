@@ -1,11 +1,9 @@
 <MainContainer>:
-    main_screen_manager: main_screen_manager
     orientation: "vertical"
 
     MDNavigationLayout:
 
         MDScreenManager:
-            id: main_screen_manager
 
             MDScreen:
                 name: "content screen"
@@ -23,7 +21,8 @@
                             [['jellyfish-outline', lambda x: nav_drawer.set_state("open")]]
 
                     MyScreenManager:
-                        main_screen_manager: main_screen_manager
+                        name: "my_screen_manager"
+                        id: my_screen_manager
 
         MDNavigationDrawer:
             id: nav_drawer
@@ -43,8 +42,14 @@
                     text: "Choose an option"
 
                 DrawerClickableItem:
+                    icon: "star-circle"
+                    text: "Best Task"
+                    on_press: my_screen_manager.current = 'main_screen'
+
+                DrawerClickableItem:
                     icon: "format-list-numbered"
                     text: "Tasks list (common)"
+                    on_press: my_screen_manager.current = 'common_tasks_list_screen'
 
                 DrawerClickableItem:
                     icon: "format-list-numbered"

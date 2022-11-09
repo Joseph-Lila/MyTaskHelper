@@ -10,24 +10,20 @@ class BaseTask:
         :param deadline: datetime.datetime: deadline of the task
         :param description: str: description of the task
         """
-        self.name = name
-        self.deadline = deadline
-        self.description = description
-        self.period = period
-        self.__status = None
-
-    @property
-    def status(self):
-        return self.__status
+        self._name = name
+        self._deadline = deadline
+        self._description = description
+        self._period = period
+        self.my_status = None
 
     def mark_as_done(self):
-        self.__status = Status.DONE
+        self.my_status = Status.DONE
 
     def delete_task(self):
-        self.__status = Status.DELETED
+        self.my_status = Status.DELETED
 
     def freeze_task(self):
-        self.__status = Status.FROZEN
+        self.my_status = Status.FROZEN
 
     def undo_freeze_task(self):
         self.__status = Status.UNKNOWN
