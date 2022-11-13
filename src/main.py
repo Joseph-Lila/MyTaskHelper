@@ -1,8 +1,5 @@
 from kivy.factory import Factory
 from kivymd.app import MDApp
-import models
-import views
-import controllers
 
 
 class MyTaskHelper(MDApp):
