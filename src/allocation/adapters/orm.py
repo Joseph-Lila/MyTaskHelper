@@ -20,6 +20,7 @@ common_task = Table(
     Column("period", Integer, nullable=False),
     Column("description", String(255), nullable=False),
     Column("status", String(25), nullable=False),
+    Column("eta", Integer, nullable=False),
     Column("partition_title", String(75), nullable=True),
     Column("partition_count", Integer, nullable=True),
     Column("partition_progress", Integer, nullable=True),
@@ -65,3 +66,5 @@ def start_mappers():
         }
     )
     registrator_item_mapper = mapper(RegistratorItem, registrator_item)
+
+

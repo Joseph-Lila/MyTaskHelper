@@ -1,6 +1,5 @@
 from dataclasses import dataclass, field
 from datetime import datetime
-from allocation.domain.models.status import Status
 
 
 @dataclass
@@ -9,5 +8,5 @@ class BaseTask:
     title: str
     deadline: datetime
     period: int
-    description: str = ""
-    status: str = Status.UNKNOWN
+    description: str
+    status: str
