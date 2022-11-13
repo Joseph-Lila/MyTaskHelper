@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from typing import Optional
-from allocation.domain.base_task import BaseTask
+from allocation.domain.models.base_task import BaseTask
 
 
 @dataclass

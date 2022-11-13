@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field
 from datetime import datetime
-from allocation.domain.status import Status
+from allocation.domain.models.status import Status
 
 
 @dataclass
