@@ -1,9 +1,8 @@
-""" Module layers.adapters.repository.registrator_repository """
+""" Module core.adapters.repository.registrator_repository """
 from typing import List, Optional
 
-from allocation.adapters.repository.abstract_repository import \
-    AbstractRepository
-from allocation.domain.models.registrator import Registrator
+from core.adapters.repository.abstract_repository import AbstractRepository
+from core.domain.models.registrator import Registrator
 
 
 class RegistratorRepository(AbstractRepository):

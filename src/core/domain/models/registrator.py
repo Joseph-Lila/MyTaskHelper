@@ -1,4 +1,5 @@
 from dataclasses import dataclass, field
+
 from allocation.domain.models.registrator_item import RegistratorItem
 
 

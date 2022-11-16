@@ -1,11 +1,18 @@
-from src.layers.service_layer.unit_of_work.abstract_unit_of_work import AbstractUnitOfWork, DEFAULT_SESSION_FACTORY
-from src.layers.adapters.repository.common_task_repository import CommonTaskRepository
-from src.layers.adapters.repository.special_task_repository import SpecialTaskRepository
-from src.layers.adapters.repository.registrator_repository import RegistratorRepository
-from src.layers.adapters.repository.registrator_item_repository import RegistratorItemRepository
+"""Module core.service_layer.unit_of_work.sqlalchemy_unit_of_work """
+from core.adapters.repository.common_task_repository import \
+    CommonTaskRepository
+from core.adapters.repository.registrator_item_repository import \
+    RegistratorItemRepository
+from core.adapters.repository.registrator_repository import \
+    RegistratorRepository
+from core.adapters.repository.special_task_repository import \
+    SpecialTaskRepository
+from core.service_layer.unit_of_work.abstract_unit_of_work import (
+    DEFAULT_SESSION_FACTORY, AbstractUnitOfWork)
 
 
 class SqlAlchemyUnitOfWork(AbstractUnitOfWork):
+    """ SqlAlchemyUnitOfWork implementation for unit of work pattern """
     def __init__(self, session_factory=DEFAULT_SESSION_FACTORY):
         self.session_factory = session_factory
 

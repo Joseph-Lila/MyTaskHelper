@@ -1,13 +1,12 @@
-from sqlalchemy import (Column, DateTime, ForeignKey, Integer, MetaData,
-                        String, Float, Table, create_engine, event)
-from sqlalchemy.ext.declarative import declarative_base
+""" Module core.adapters.orm """
+from sqlalchemy import (Column, DateTime, Float, ForeignKey, Integer, MetaData,
+                        String, Table)
 from sqlalchemy.orm import mapper, relationship
 
-from allocation.config import get_sqlite_uri
-from allocation.domain.models.common_task import CommonTask
-from allocation.domain.models.special_task import SpecialTask
-from allocation.domain.models.registrator import Registrator
-from allocation.domain.models.registrator_item import RegistratorItem
+from core.domain.models.common_task import CommonTask
+from core.domain.models.registrator import Registrator
+from core.domain.models.registrator_item import RegistratorItem
+from core.domain.models.special_task import SpecialTask
 
 metadata = MetaData()
 
@@ -66,5 +65,3 @@ def start_mappers():
         }
     )
     registrator_item_mapper = mapper(RegistratorItem, registrator_item)
-
-

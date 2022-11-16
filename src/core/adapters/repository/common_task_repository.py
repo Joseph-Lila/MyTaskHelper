@@ -1,9 +1,8 @@
-""" Module layers.adapters.repository.common_task_repository """
+""" Module core.adapters.repository.common_task_repository """
 from typing import List, Optional
 
-from allocation.adapters.repository.abstract_repository import \
-    AbstractRepository
-from allocation.domain.models.common_task import CommonTask
+from core.adapters.repository.abstract_repository import AbstractRepository
+from core.domain.models.common_task import CommonTask
 
 
 class CommonTaskRepository(AbstractRepository):

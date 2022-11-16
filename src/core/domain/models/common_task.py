@@ -1,6 +1,7 @@
 """ Module layers.adapters.repository.registrator_repository """
 from dataclasses import dataclass
-from typing import Optional, List
+from typing import List, Optional
+
 from allocation.domain.models.base_task import BaseTask
 from allocation.domain.models.status import Status
 

@@ -1,8 +1,8 @@
-""" Module layers.adapters.repository.abstract_repository """
+""" Module core.adapters.repository.abstract_repository """
 import abc
 from typing import List, Optional
 
-from allocation.domain.models.base_task import BaseTask
+from core.domain.models.base_task import BaseTask
 
 
 class AbstractRepository(abc.ABC):

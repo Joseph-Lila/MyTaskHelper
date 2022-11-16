@@ -6,7 +6,6 @@ bcrypt==3.2.0
 bitarray==2.6.0
 blinker==1.4
 Brlapi==0.8.3
--e git+https://github.com/kivy/buildozer@b8575fd5b1e150bf93be3b7e77f229a28a7e5e0d#egg=buildozer
 bytes==0.0.1.dev4
 certifi==2020.6.20
 chardet==4.0.0
@@ -122,3 +121,4 @@ python-dotenv==0.21.0
 setuptools==65.5.1
 pip==22.3.1
 wheel==0.37.1
+future==0.18.2
