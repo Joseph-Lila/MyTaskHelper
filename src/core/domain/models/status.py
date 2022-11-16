@@ -1,7 +1,9 @@
+""" Module core.domain.models.status """
 from typing import Optional
 
 
 class Status:
+    """ Status class """
     DONE = 'done'
     HORROR = 'horror'
     CRITICAL = 'critical'
@@ -12,14 +14,14 @@ class Status:
     FROZEN = 'frozen'
     UNKNOWN = 'unknown'
 
-    STATUSES_WITH_ESTIMATION = [
+    STATUSES_WITH_MARKS = [
         CRITICAL,
         HARD,
         MIDDLE,
         LIGHT,
     ]
 
-    STATUS_ESTIMATE = {
+    BEFORE_START_WORKING_ON_TASK = {
         DONE: None,
         HORROR: None,
         CRITICAL: 0,
@@ -31,11 +33,17 @@ class Status:
         UNKNOWN: None,
     }
 
+    @staticmethod
+    def check_status_assumes_time_to_work(status):
+        """ Checks if the status assumes time to work on it. """
+        return status in Status.STATUSES_WITH_MARKS
+
     @classmethod
-    def get_status_estimation(cls, status: str) -> int:
-        if status not in cls.STATUS_ESTIMATE:
+    def get_hours_before_start_working_on_task(cls, status: str) -> int:
+        """ Method to get hours before start working on task. """
+        if not Status.check_status_assumes_time_to_work(status):
             raise KeyError('Wrong status value!')
-        eta: Optional[int] = cls.STATUS_ESTIMATE[status]
+        eta: Optional[int] = cls.BEFORE_START_WORKING_ON_TASK[status]
         if eta is None:
             raise ValueError(f"The status `{status}` cannot be estimated!")
         return eta

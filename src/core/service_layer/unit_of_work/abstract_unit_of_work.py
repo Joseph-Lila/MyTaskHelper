@@ -3,30 +3,20 @@ import abc
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy.orm.session import Session
 
 from core import config
-from core.adapters.repository.common_task_repository import \
-    CommonTaskRepository
-from core.adapters.repository.registrator_item_repository import \
-    RegistratorItemRepository
-from core.adapters.repository.registrator_repository import \
-    RegistratorRepository
-from core.adapters.repository.special_task_repository import \
-    SpecialTaskRepository
-from core.domain.models.base_task import BaseTask
 
 
 class AbstractUnitOfWork(abc.ABC):
     """ Abstract unit of work class."""
     def __init__(self):
         self.session = None
-        self.common_tasks: CommonTaskRepository = None
-        self.special_tasks: SpecialTaskRepository = None
-        self.registrators: RegistratorRepository = None
-        self.registrator_items: RegistratorItemRepository = None
+        self.common_tasks = None
+        self.special_tasks = None
+        self.registrators = None
+        self.registrator_items = None
 
-    def __enter__(self) -> AbstractUnitOfWork:
+    def __enter__(self):
         return self
 
     def __exit__(self, *args):
@@ -34,10 +24,12 @@ class AbstractUnitOfWork(abc.ABC):
 
     @abc.abstractmethod
     def commit(self):
+        """ Method to commit the current session"""
         raise NotImplementedError
 
     @abc.abstractmethod
     def rollback(self):
+        """ Method to roll back the current session"""
         raise NotImplementedError
 
 

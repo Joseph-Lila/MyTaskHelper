@@ -1,8 +1,8 @@
 fix: isort lint
-	cat "Good luck!"
+	echo "Good luck!"
 
 lint:
-	pylint src/ tests/
+	pylint src/
 
 isort:
 	isort src/ tests/

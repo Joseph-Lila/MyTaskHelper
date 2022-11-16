@@ -1,8 +1,9 @@
+""" Module core.domain.models.special_task """
 from dataclasses import dataclass
 
-from allocation.domain.models.base_task import BaseTask
+from core.domain.models.base_task import BaseTask
 
 
 @dataclass
 class SpecialTask(BaseTask):
-    pass
+    """ Special class for special tasks. """

@@ -56,12 +56,14 @@ registrator_item = Table(
 
 
 def start_mappers():
-    common_task_mapper = mapper(CommonTask, common_task)
-    special_task_mapper = mapper(SpecialTask, special_task)
-    registrator_mapper = mapper(
+    """ Let's we map our domain classes. """
+    mapper(CommonTask, common_task)
+    mapper(SpecialTask, special_task)
+    mapper(
         Registrator, registrator,
         properties={
-            "items": relationship(RegistratorItem, backref="registrator", order_by=registrator_item.c.when)
+            "items": relationship(
+                RegistratorItem, backref="registrator", order_by=registrator_item.c.when)
         }
     )
-    registrator_item_mapper = mapper(RegistratorItem, registrator_item)
+    mapper(RegistratorItem, registrator_item)
