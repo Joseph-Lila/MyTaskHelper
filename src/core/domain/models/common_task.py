@@ -15,7 +15,6 @@ class CommonTask(BaseTask):
     def __init__(self, eta: int, partition_title: Optional[str], partition_count: Optional[int],
                  partition_progress: Optional[int]):
         super().__init__()
-        self.item_id: int = field(init=False)
         self.eta: int = eta
         self.partition_title: Optional[str] = partition_title
         self.partition_count: Optional[int] = partition_count
@@ -24,7 +23,7 @@ class CommonTask(BaseTask):
     @staticmethod
     def get_by_id(common_tasks, task_id: int):
         """ Get a common task by id """
-        results = [task for task in common_tasks if task.id == task_id]
+        results = [task for task in common_tasks if task.item_id == task_id]
         return results[0] if len(results) > 0 else None
 
     @staticmethod

@@ -59,6 +59,7 @@ def start_mappers():
     """ Let's we map our domain classes. """
     mapper(CommonTask, common_task)
     mapper(SpecialTask, special_task)
+    mapper(RegistratorItem, registrator_item)
     mapper(
         Registrator, registrator,
         properties={
@@ -66,4 +67,3 @@ def start_mappers():
                 RegistratorItem, backref="registrator", order_by=registrator_item.c.when)
         }
     )
-    mapper(RegistratorItem, registrator_item)
